@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+/* 
+@import "../node_modules/bootstrap/dist/css/bootstrap.css"
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+.color-red {
+    background-color: red
+}
+
+.color-blue {
+    background-color: blue
+}
+
+
+.menu a{
+    color: white;
+    text-decoration: none
+}
+
+.mt-5{
+    margin-top: 5%;
+}
+
+table {
+    width: 100%;
+  }
+
+  /* mat-form-field{
+      border: 1px solid black
+  } */

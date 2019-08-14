@@ -1,0 +1,54 @@
+<table mat-table [dataSource]="subjects" matSort class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="Id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+  </ng-container>
+
+
+  <!-- Operations Column -->
+  <ng-container matColumnDef="Operations">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Operations </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-fab (click)="DeleteSubject(element.Id)">Delete</button>
+      <button mat-fab (click)="GetSubjectData(element.Id)">Details</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+
+<mat-card class="mt-5">
+
+  <form class="example-form" #formRef="ngForm">
+    <mat-form-field class="example-full-width">
+        <div class="text-danger" *ngIf="nameRef.invalid">
+            <span *ngIf="nameRef.errors?.rangeLength">2 digits and 10 digits</span>
+          </div>
+          
+      <input matInput type="text" placeholder="Subject Name" 
+      name="Name" 
+      [(ngModel)]="newSubj.Name"
+      required
+      [rangeLength]="[2, 10]"        
+      #nameRef="ngModel"
+      >
+      
+    </mat-form-field>
+
+    <button mat-button class="color-red" [disabled]="formRef.invalid" (click)="addNewSubject()">Add New Subject</button>
+
+    <button mat-button class="color-blue" [disabled]="!flag" (click)="EditSubject()">Update</button>
+
+  </form>
+</mat-card>

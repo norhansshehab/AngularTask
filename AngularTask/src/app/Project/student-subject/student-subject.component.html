@@ -1,0 +1,34 @@
+
+<mat-card>
+
+<h4>Select Students</h4>
+<mat-form-field>
+    <mat-label>Select Student</mat-label>
+   
+
+    <mat-select [(ngModel)]="newstds" multiple>
+        <mat-option *ngFor="let item of students" [value]="item.Id">
+          {{item.Name}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  
+
+<br/>
+
+
+
+<h4>Select Subjects</h4>
+<mat-form-field>
+    <mat-label>Select Student</mat-label>
+   
+
+    <mat-select [(ngModel)]="newsubs" multiple>
+        <mat-option *ngFor="let item of subjects" [value]="item.Id">
+          {{item.Name}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+<button mat-fab (click)="AddStudentSubject()">Add</button>
+</mat-card>

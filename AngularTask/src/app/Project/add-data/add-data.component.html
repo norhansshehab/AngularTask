@@ -1,0 +1,74 @@
+
+
+<!-- <select #s  (change)="GetAllStudentBySubjectId(s.value)" name="subjects">
+  <option *ngFor="let item of subjects"    [value]="item.Id">{{item.Name}}</option>
+</select> -->
+
+<!-- 
+<select [(ngModel)]="selectedID" (change)="GetAllStudentBySubjectId()">
+  <option *ngFor="let item of subjects" value={{item.Id}}>
+    {{item.Name}}
+  </option>
+</select>
+
+
+<br>
+<table>
+<tr *ngFor="let item of arrStdSub">
+<td>{{item.student?.Name}}</td>
+<td><input type="text" [(ngModel)]="arrStdSub.Grade"/></td> 
+<td><input type="text" /></td>
+
+<td><button (click)="UpdateDegree(item.StudentId)">Update Grade</button></td>
+</tr>
+</table> -->
+
+
+
+<!-- <select #s  (change)="GetAllStudentBySubjectId(s.value)" name="subjects">
+  <option *ngFor="let item of subjects"    [value]="item.Id">{{item.Name}}</option>
+</select> -->
+
+
+
+<mat-card>
+    <mat-form-field>
+        <mat-label>Select Subject</mat-label>
+       
+    
+        <mat-select [(ngModel)]="selectedID" (selectionChange)="GetAllStudentBySubjectId()">
+            <mat-option *ngFor="let item of subjects" [value]="item.Id">
+              {{item.Name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+    </mat-card> 
+
+<br>
+
+
+<mat-card>
+    
+      <form class="example-form" *ngFor="let item of arrStdSub">
+
+          <h4>{{item.student?.Name}}</h4>
+          <div *ngIf="ageRef.invalid">
+              <span *ngIf="ageRef.errors?.range">min 10 and max 30</span>
+            </div>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Student Grade" [(ngModel)]="item.Grade" (change)="getID(item)" 
+          name="Grade"
+          required
+          [range]="[10, 100]"
+          #ageRef="ngModel">
+          
+       </mat-form-field>
+       
+
+    
+      </form>
+
+      <button mat-button class="color-blue" (click)="UpdateDegree()">Update</button>
+      
+    </mat-card>

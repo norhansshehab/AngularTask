@@ -1,0 +1,41 @@
+<!-- <app-subject></app-subject>
+<br>
+<hr>
+<br>
+
+<app-student></app-student>
+<app-student-subject></app-student-subject>
+
+<app-add-data></app-add-data> -->
+
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu class="menu" #menu="matMenu">   
+
+        <ul>
+
+            <li mat-menu-item routerLinkActive="active">
+                <a routerLink="/student">Student</a>
+            </li>
+            <li mat-menu-item routerLinkActive="active">
+                <a routerLink="/subject">Subject</a>
+            </li>
+            <li mat-menu-item routerLinkActive="active">
+                <a routerLink="/StudentSubject">Add Students To Subjects</a>
+            </li>
+
+            <li mat-menu-item routerLinkActive="active">
+                <a routerLink="/AddData">Assign Grades</a>
+            </li>
+
+            <li mat-menu-item routerLinkActive="active">
+                <a routerLink="/StudentGrade">List of Students' Grades</a>
+            </li>
+
+        </ul>
+
+</mat-menu>
+
+
+
+
+<router-outlet></router-outlet>
